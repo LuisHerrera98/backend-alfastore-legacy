@@ -5,6 +5,7 @@ import cors from "cors";
 import path from "path";
 import categoriesRoutes from "./routes/categories.routes.js";
 import productsRoutes from "./routes/product.routes.js";
+import sizeRoutes from "./routes/size.routes.js";
 import mongoose from "mongoose"
 
 // ENTORNO
@@ -44,3 +45,4 @@ console.log("Server on port" + port);
 // ROUTER
 app.use("/category", categoriesRoutes);
 app.use("/product", productsRoutes);
+app.use("/size", sizeRoutes);

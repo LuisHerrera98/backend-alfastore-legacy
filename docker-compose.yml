@@ -13,23 +13,5 @@ services:
       - CLOUDINARY_CLOUD_NAME=dwmsky6nu
       - CLOUDINARY_API_KEY=982366275336271
       - CLOUDINARY_API_SECRET=3xYTMjv3JNbDdHjXPZVeoF9DdA4
-      - DB_HOST=54.156.167.104
-      - DB_NAME=db_thealfastore
-      - DB_PASSWORD=password
-      - DB_USER=postgres
-    depends_on: 
-      - db_thealfastore
-  db_thealfastore: 
-    container_name: db_thealfastore
-    image: postgres
-    restart: always
-    ports:
-      - "5431:5432"
-    environment: 
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=db_thealfastore
-    volumes:
-      - nps_data:/var/lib/postgresql/data
-
 volumes:
   nps_data: {}

@@ -40,7 +40,7 @@ export const categoryController = {
         status: false
       });
       await category.save();
-      res.json(cartegory);
+      res.json(category);
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }
