@@ -2,10 +2,10 @@ import mongoose from "mongoose";
 
 const stockSchema = new mongoose.Schema({
   cuantity: {
-    type: number,
+    type: Number,
     required: true,
   },
-  stock_id: {
+  size_id: {
     type: String,
     require: true
   },
@@ -13,9 +13,7 @@ const stockSchema = new mongoose.Schema({
     type: String,
     require: true
   }
-
 });
 
-const Stock = mongoose.model('Size', stockSchema);
-
+const Stock = mongoose.model('Stock', stockSchema);
 export default Stock;

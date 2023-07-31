@@ -10,5 +10,6 @@ router.get("/category/:category_id", productController.getByCategory);
 router.post("/create", uploadImage, productController.create);
 router.put("/update/:_id", productController.update);
 router.delete("/delete/:_id", productController.delete);
+router.get("/products/:category_id/:size_id", productController.getProductBySizeAndCategory);
 
 export default router;
