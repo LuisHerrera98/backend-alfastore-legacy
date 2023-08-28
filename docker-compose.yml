@@ -10,9 +10,9 @@ services:
     ports:
       - "3000:3000"
     environment: 
-      - CLOUDINARY_CLOUD_NAME=dwmsky6nu
-      - CLOUDINARY_API_KEY=982366275336271
-      - CLOUDINARY_API_SECRET=3xYTMjv3JNbDdHjXPZVeoF9DdA4
-      - DATABASE_MONGO_URI=mongodb+srv://Lucho:mision2017@db-alfastore.dknyvyl.mongodb.net/
+      - CLOUDINARY_CLOUD_NAME:dwmsky6nu
+      - CLOUDINARY_API_KEY:982366275336271
+      - CLOUDINARY_API_SECRET:3xYTMjv3JNbDdHjXPZVeoF9DdA4
+      - DATABASE_MONGO_URI:mongodb+srv://Lucho:mision2017@db-alfastore.dknyvyl.mongodb.net/
 volumes:
   nps_data: {}
