@@ -19,7 +19,7 @@ mongoose.connect(dbURI, {
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("Conexión a MongoDB Atlas exitosa");
+    console.log("Conexión a MongoDB Atlas exitosa!");
   })
   .catch((err) => {
     console.error("Error al conectar a MongoDB Atlas", err);
