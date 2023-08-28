@@ -2,7 +2,7 @@ version: '3'
 
 services: 
   backend_thealfastore:
-    container_name: backend_thealfastore
+    container_name: backend
     image: backend
     restart: always
     build: 
