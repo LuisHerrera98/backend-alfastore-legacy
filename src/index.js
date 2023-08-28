@@ -38,11 +38,11 @@ app.use(cors(corsOptions)); // Use this after the variable declaration
 app.use(express.static(path.join("public")));
 app.use(express.json());
 
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 3000
 app.listen(port);
-console.log("Server on port" + port);
+console.log("Server on port: " + port);
 
 // ROUTER
-app.use("/category", categoriesRoutes);
-app.use("/product", productsRoutes);
-app.use("/size", sizeRoutes);
+app.use("/api/category", categoriesRoutes);
+app.use("/api/product", productsRoutes);
+app.use("/api/size", sizeRoutes);
