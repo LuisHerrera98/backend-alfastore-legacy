@@ -43,9 +43,7 @@ app.listen(port);
 console.log("Server on port: " + port);
 
 // ROUTER
-app.get('/', (req, res) => {
-  res.send('¡Hola!');
-});
+
 app.use("/api/category", categoriesRoutes);
 app.use("/api/product", productsRoutes);
 app.use("/api/size", sizeRoutes);
