@@ -47,6 +47,6 @@ app.get("/", (req,res) => {
   res.send('hola xd')
 })
 
-app.use("/api/category", categoriesRoutes);
-app.use("/api/product", productsRoutes);
-app.use("/api/size", sizeRoutes);
+app.use("/category", categoriesRoutes);
+app.use("/product", productsRoutes);
+app.use("/size", sizeRoutes);
