@@ -47,6 +47,7 @@ app.get("/", (req,res) => {
   res.json({message: "hola perro"})
 })
 
+
 app.use("/category", categoriesRoutes);
 app.use("/product", productsRoutes);
 app.use("/size", sizeRoutes);
