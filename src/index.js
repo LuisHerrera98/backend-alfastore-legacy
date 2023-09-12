@@ -44,7 +44,7 @@ console.log("Server on port: " + port);
 
 // ROUTER
 app.get("/", (req,res) => {
-  res.json({message: "hola"})
+  res.json({message: "hola perro"})
 })
 
 app.use("/category", categoriesRoutes);
