@@ -44,5 +44,10 @@ export const categoryController = {
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }
+  },
+
+  deleteAll: async (req, res) => {
+    await Category.deleteMany()
+    return res.json({message: "deleted categories"})
   }
 };
