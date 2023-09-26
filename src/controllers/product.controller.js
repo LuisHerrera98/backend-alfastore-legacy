@@ -89,15 +89,17 @@ export const productController = {
 
         //creo los talles de los productos pasados
         let productNewId = saveProduct._id;
-        let stocks = JSON.parse(req.body.stock);
+        // let stocks = JSON.parse(req.body.stock);
+        let stocks = req.body.stock
 
-        for (let i = 0; i < stocks.length; i++) {
-          stocks[i].product_id = productNewId;
-        }
+        // for (let i = 0; i < stocks.length; i++) {
+        //   stocks[i].product_id = productNewId;
+        // }
+        console.log(stocks);
 
-        const createStock = await Stock.insertMany(stocks);
+        // const createStock = await Stock.insertMany(stocks);
 
-        res.json([saveProduct, createStock]);
+        res.json([saveProduct]);
       }
     } catch (error) {
       console.log(error);

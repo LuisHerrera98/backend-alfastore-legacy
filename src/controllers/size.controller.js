@@ -39,5 +39,14 @@ export const sizeController = {
     }
   },
 
+  deleteAll: async (req, res) => {
+    try {
+      await Size.deleteMany();
+      return res.json({message: "deleted sizes"})
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
+
   
 };
