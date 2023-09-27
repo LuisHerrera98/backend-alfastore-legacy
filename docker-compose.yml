@@ -13,6 +13,6 @@ services:
       - CLOUDINARY_CLOUD_NAME=dwmsky6nu
       - CLOUDINARY_API_KEY=982366275336271
       - CLOUDINARY_API_SECRET=3xYTMjv3JNbDdHjXPZVeoF9DdA4
-      - DATABASE_MONGO_URI=mongodb+srv://Lucho:mision2017@db-alfastore.dknyvyl.mongodb.net/
+      - DATABASE_MONGO_URI=mongodb+srv://Lucho:mision2017@db-alfastore.dknyvyl.mongodb.net/db_alfastore
 volumes:
   nps_data: {}
