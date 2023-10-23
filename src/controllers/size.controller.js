@@ -46,6 +46,25 @@ export const sizeController = {
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }
+  },
+
+  sizeAdd: async (req, res) => {
+    const { product_id, size_id } = req.body;
+    try {
+      await Size.deleteMany();
+      return res.json({message: "deleted sizes"})
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  },
+
+  sizeDown: async (req, res) => {
+    try {
+      await Size.deleteMany();
+      return res.json({message: "deleted sizes"})
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
   }
 
   
