@@ -51,6 +51,11 @@ export const productController = {
       if (req.files) {
 
         let stock = JSON.parse(req.body.stock);
+        stock = stock.map(item => ({
+          ...item,
+          cuantity: parseInt(item.cuantity) || 0
+        }));
+        console.log(stock);
        
         const product = new Product({
           name,

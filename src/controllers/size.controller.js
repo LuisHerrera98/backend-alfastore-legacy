@@ -1,4 +1,5 @@
 import Size from "../models/Size.js";
+import Product from "../models/Product.js"
 
 export const sizeController = {
   create: async (req, res) => {
@@ -48,24 +49,43 @@ export const sizeController = {
     }
   },
 
-  sizeAdd: async (req, res) => {
+  sizeIncrement: async (req, res) => {
     const { product_id, size_id } = req.body;
     try {
-      await Size.deleteMany();
-      return res.json({message: "deleted sizes"})
+      await Product.updateOne(
+        {
+          _id: product_id,
+          "stock.id": size_id
+        },
+        {
+          $inc: {
+            "stock.$.cuantity": +1
+          }
+        }
+      );
+      return res.json({message: "decrement"})
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }
   },
 
-  sizeDown: async (req, res) => {
+  sizeDecrement: async (req, res) => {
+    const { product_id, size_id } = req.body;
     try {
-      await Size.deleteMany();
-      return res.json({message: "deleted sizes"})
+      await Product.updateOne(
+        {
+          _id: product_id,
+          "stock.id": size_id
+        },
+        {
+          $inc: {
+            "stock.$.cuantity": -1
+          }
+        }
+      );
+      return res.json({message: "increment"})
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }
   }
-
-  
 };
