@@ -63,7 +63,7 @@ export const sizeController = {
           }
         }
       );
-      return res.json({message: "decrement"})
+      return res.json({message: "increment"})
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }

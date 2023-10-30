@@ -28,6 +28,15 @@ export const productController = {
       {
         "category_id": category_id,
         "stock.id": size_id
+      },
+      {
+        _id: 1,
+        name: 1,
+        images: 1,
+        price: 1,
+        cost: 1,
+        status: 1,
+        "stock.$": 1
       }
     );
 
