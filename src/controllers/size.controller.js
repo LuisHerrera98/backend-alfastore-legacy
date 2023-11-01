@@ -51,6 +51,7 @@ export const sizeController = {
 
   sizeIncrement: async (req, res) => {
     const { product_id, size_id } = req.body;
+    console.log(product_id, size_id);
     try {
       await Product.updateOne(
         {
