@@ -6,6 +6,8 @@ import path from "path";
 import categoriesRoutes from "./routes/categories.routes.js";
 import productsRoutes from "./routes/product.routes.js";
 import sizeRoutes from "./routes/size.routes.js";
+import sellRoutes from "./routes/sell.routes.js";
+
 import mongoose from "mongoose"
 
 // ENTORNO
@@ -51,3 +53,4 @@ app.get("/", (req,res) => {
 app.use("/category", categoriesRoutes);
 app.use("/product", productsRoutes);
 app.use("/size", sizeRoutes);
+app.use("/sell", sellRoutes)

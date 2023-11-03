@@ -5,11 +5,15 @@ const sellSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  date: {
+  date_complete: {
     type: String,
     required: true,
   },
-  category_id: {
+  date_sell: {
+    type: String,
+    required: true,
+  },
+  category_name: {
     type: String,
     required: true,
   },
@@ -21,19 +25,18 @@ const sellSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  images: {
-    type: Array,
+  image: {
+    type: String,
     required: false,
   },
-  status: {
-    type: Boolean,
-    required: false,
-    default: true
-  },
-  stock: {
-    type: Array,
+  size_name: {
+    type: String,
     required: true,
   },
+  method_payment: {
+    type: String,
+    required: true,
+  }
 });
 
 const Sell = mongoose.model('sells', sellSchema);
