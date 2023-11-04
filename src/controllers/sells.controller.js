@@ -6,10 +6,13 @@ export const sellsController = {
 
   registerSell: async (req, res) => {
     const { name, category_name, cost, price, image, size_name, method_payment } = req.body;
-    const date_complete = generateDate("complete");
+    const date_hour = generateDate("hour");
     const date_sell = generateDate();
 
     const dateFind = await DateSell.find({ date: date_sell });
+
+    console.log(dateFind);
+    console.log(name, category_name, cost, price, image, size_name, method_payment, date_hour);
 
     try {
       if (dateFind.length == 0) {
@@ -21,7 +24,7 @@ export const sellsController = {
 
       const createSell = new Sell({
         name,
-        date_complete,
+        date_hour,
         date_sell,
         category_name,
         cost,
@@ -32,7 +35,7 @@ export const sellsController = {
       })
       await createSell.save()
 
-      res.json(createSell);
+      return res.status(201).json(createSell);
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }

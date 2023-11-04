@@ -5,7 +5,7 @@ const sellSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  date_complete: {
+  date_hour: {
     type: String,
     required: true,
   },

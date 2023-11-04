@@ -12,11 +12,14 @@ const generateDate = (type = "outHour") => {
   const dayOfWeek = fechaActual.getDay();
   const daysOfWeek = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
 
-  if (type == "complete") {
+  if (type == "hour") {
     const hour = fechaActual.getHours();
     const minutes = fechaActual.getMinutes();
+    if(minutes.length == 1){
+      minutes = `0${minutes}`
+    }
 
-    return `${daysOfWeek[dayOfWeek]} ${day} de ${month} ${year} a las ${hour}:${minutes}`;
+    return `${hour}:${minutes}`;
   }
 
   return `${daysOfWeek[dayOfWeek]} ${day} de ${month} ${year}`;
