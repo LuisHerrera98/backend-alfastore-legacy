@@ -52,7 +52,6 @@ export const sellsController = {
 
   getSells: async (req, res) => {
     const { date } = req.params;
-    console.log(date);
     try {
       const sells = await Sell.find({
         date_sell: date
