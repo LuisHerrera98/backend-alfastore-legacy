@@ -19,7 +19,7 @@ const sellSchema = new mongoose.Schema({
   },
   cost: {
     type: Number,
-    required: true,
+    required: false,
   },
   price: {
     type: Number,
@@ -31,7 +31,7 @@ const sellSchema = new mongoose.Schema({
   },
   size_name: {
     type: String,
-    required: true,
+    required: false,
   },
   method_payment: {
     type: String,
