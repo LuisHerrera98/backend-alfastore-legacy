@@ -6,5 +6,6 @@ const router = Router();
 router.get('/dateSells', sellsController.dateSells)
 router.get('/sells/:date', sellsController.getSells)
 router.post('/registerSell', sellsController.registerSell)
+router.delete('/deleteAll', sellsController.deleteSells)
 
 export default router;

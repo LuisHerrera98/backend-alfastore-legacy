@@ -10,10 +10,7 @@ export const sellsController = {
     const date_sell = generateDate();
 
     const dateFind = await DateSell.find({ date: date_sell });
-
-    console.log(dateFind);
-    console.log(name, category_name, cost, price, image, size_name, method_payment, date_hour);
-
+console.log(method_payment);
     try {
       if (dateFind.length == 0) {
         const createDate = new DateSell({
@@ -37,7 +34,8 @@ export const sellsController = {
 
       return res.status(201).json(createSell);
     } catch (error) {
-      return res.status(500).json({ message: error.message });
+      console.log(error);
+      return res.status(500).json({ message: error._message });
     }
   },
 
@@ -60,5 +58,14 @@ export const sellsController = {
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }
-  }
+  },
+
+  deleteSells: async (req,res) => {
+      try {
+        await Sell.deleteMany();
+        return res.json({message: "deleted sells"})
+      } catch (error) {
+        return res.status(500).json({ message: error.message });
+      }
+    }
 };

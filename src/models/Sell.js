@@ -15,7 +15,7 @@ const sellSchema = new mongoose.Schema({
   },
   category_name: {
     type: String,
-    required: true,
+    required: false,
   },
   cost: {
     type: Number,
