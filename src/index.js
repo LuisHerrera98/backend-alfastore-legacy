@@ -31,7 +31,7 @@ mongoose.connect(dbURI, {
 const app = express();
 app.use(morgan("dev"));
 const corsOptions = {
-  origin: "*",
+  origin: "https://alfastoreargentina.com/",
   credentials: false, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
