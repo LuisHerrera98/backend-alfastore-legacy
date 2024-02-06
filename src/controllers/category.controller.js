@@ -1,16 +1,31 @@
 import Category from "../models/Category.js";
+import { uploadImage } from "../utils/cloudinary.js";
+import * as fs from "fs/promises";
 
 export const categoryController = {
 
   create: async (req, res) => {
+
+    const image = [];
+
     try {
       const { name } = req.body;
+      for (let i = 0; i < req.files.length; i++) {
+        const result = await uploadImage(req.files[i].path);
+        console.log(result);
+        const url = result.secure_url;
+        image.push(url);
+        await fs.unlink(req.files[i].path);
+      }
+
       const category = new Category({
         name,
+        image
       });
-      const saveCategory = await category.save();
-      res.json(saveCategory);
+      await category.save();
+      res.json({message: 'create category'})
     } catch (error) {
+      console.log(error);
         res.json({message: "Duplicate name in categories"})
     }
   },
