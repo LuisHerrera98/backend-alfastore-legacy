@@ -12,9 +12,12 @@ export const sizeController = {
         unique,
       });
       const saveSize = await size.save();
-      res.json(saveSize);
+      return res.status(201).json({ message: "Talle creado"});
     } catch (error) {
-      res.json({ message: "Error create size or duplicated size" });
+      if (error.code === 11000) {
+        return res.status(409).json({ message: "Talle ya existe" });
+      }
+      return res.status(500).json({ message: error.message });
     }
   },
 

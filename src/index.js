@@ -8,7 +8,7 @@ import productsRoutes from "./routes/product.routes.js";
 import sizeRoutes from "./routes/size.routes.js";
 import sellRoutes from "./routes/sell.routes.js";
 
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 // ENTORNO
 dotenv.config();
@@ -16,9 +16,11 @@ dotenv.config();
 // Conexión a MongoDB Atlas
 const dbURI = process.env.DATABASE_MONGO_URI;
 
-mongoose.connect(dbURI, {
+mongoose
+  .connect(dbURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    maxPoolSize: 10
   })
   .then(() => {
     console.log("Conexión a MongoDB Atlas exitosa!");
@@ -40,17 +42,16 @@ app.use(cors(corsOptions)); // Use this after the variable declaration
 app.use(express.static(path.join("public")));
 app.use(express.json());
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 app.listen(port);
 console.log("Server on port: " + port);
 
 // ROUTER
-app.get("/", (req,res) => {
-  res.json({message: "hola perro"})
-})
-
+app.get("/", (req, res) => {
+  res.json({ message: "hola perro" });
+});
 
 app.use("/category", categoriesRoutes);
 app.use("/product", productsRoutes);
 app.use("/size", sizeRoutes);
-app.use("/sell", sellRoutes)
+app.use("/sell", sellRoutes);
