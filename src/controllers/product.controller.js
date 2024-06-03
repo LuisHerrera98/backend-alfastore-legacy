@@ -1,3 +1,4 @@
+import { log } from "util";
 import Product from "../models/Product.js";
 import { uploadImage } from "../utils/cloudinary.js";
 import * as fs from "fs/promises";
@@ -26,8 +27,8 @@ export const productController = {
 
     const products = await Product.find(
       {
-        "category_id": category_id,
-        "stock.id": size_id
+        category_id: category_id,
+        "stock.id": size_id,
       },
       {
         _id: 1,
@@ -37,14 +38,19 @@ export const productController = {
         price: 1,
         cost: 1,
         status: 1,
-        "stock.$": 1
+        "stock.$": 1,
       }
     );
 
-    res.json(products)
+    const productStock = products.filter((product) => {
+      return product.stock.some((item) => item.cuantity > 0);
+    });
+
+    res.json(productStock);
   },
 
   create: async (req, res) => {
+    console.log(req.files);
     const { name, cost, price, category_id } = req.body;
 
     try {
@@ -59,21 +65,20 @@ export const productController = {
       }
 
       if (req.files) {
-
         let stock = JSON.parse(req.body.stock);
-        stock = stock.map(item => ({
+        stock = stock.map((item) => ({
           ...item,
-          cuantity: parseInt(item.cuantity) || 0
+          cuantity: parseInt(item.cuantity) || 0,
         }));
         console.log(stock);
-       
+
         const product = new Product({
           name,
           cost,
           price,
           category_id,
           images,
-          stock
+          stock,
         });
 
         const saveProduct = await product.save();
@@ -114,7 +119,7 @@ export const productController = {
   deleteAll: async (req, res) => {
     try {
       await Product.deleteMany();
-      res.send("eliminados")
+      res.send("eliminados");
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }
