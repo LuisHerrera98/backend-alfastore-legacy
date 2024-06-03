@@ -3,10 +3,10 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import cors from "cors";
 import path from "path";
-import categoriesRoutes from "./routes/categories.routes.js";
-import productsRoutes from "./routes/product.routes.js";
-import sizeRoutes from "./routes/size.routes.js";
-import sellRoutes from "./routes/sell.routes.js";
+import categoriesRoutes from "./src/routes/categories.routes.js";
+import productsRoutes from "./src/routes/product.routes.js";
+import sizeRoutes from "./src/routes/size.routes.js";
+import sellRoutes from "./src/routes/sell.routes.js";
 
 import mongoose from "mongoose";
 
