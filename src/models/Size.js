@@ -4,10 +4,12 @@ const sizeSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
+    unique:false
   },
   category_id: {
     type: String,
-    require: true
+    require: true,
+    unique: false
   },
   unique: {
     type: String,
